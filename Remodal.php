@@ -23,8 +23,8 @@ class Remodal extends \yii\base\Widget{
     public $id = 'remodal';
 
     private $optionsDefault = [
-        'hashTracking'          =>  true,
-        'closeOnOutsideClick'   =>  true,
+        'hashTracking'          =>  "true",
+        'closeOnOutsideClick'   =>  "true",
     ];
 
     private $buttonOptionsDefault = [
