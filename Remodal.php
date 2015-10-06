@@ -17,6 +17,8 @@ class Remodal extends \yii\base\Widget{
     public $confirmButtonOptions = [];
     public $content = '';
     public $closeButton = true;
+    public $cancelButton = true;
+    public $confirmButton = true;
 
     public $id = 'remodal';
 
