@@ -44,6 +44,7 @@ class Remodal extends \yii\base\Widget{
     ];
 
     public function init(){
+        RemodalAsset::register($this->getView());
         $this->id = $this->id.rand(0, 200000000);
         $this->options = array_merge($this->optionsDefault,$this->options);
         $this->buttonOptions = array_merge($this->buttonOptionsDefault,$this->buttonOptions);
