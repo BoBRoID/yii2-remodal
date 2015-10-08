@@ -104,8 +104,10 @@ class Remodal extends \yii\base\Widget{
         }
 
         $tag = isset($this->buttonOptions['tag']) ? $this->buttonOptions['tag'] : 'a';
-        unset($this->buttonOptions['tag']);
-        return Html::tag($tag, $this->buttonOptions['label'], array_merge($this->buttonOptions, [
+        $label = $this->buttonOptions['label'];
+
+        unset($this->buttonOptions['tag'], $this->buttonOptions['label']);
+        return Html::tag($tag, $label, array_merge($this->buttonOptions, [
             'href'    =>  '#'.$this->id
         ]));
     }
