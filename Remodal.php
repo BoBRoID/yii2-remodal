@@ -20,6 +20,7 @@ class Remodal extends \yii\base\Widget{
     public $cancelButton = true;
     public $confirmButton = true;
     public $addRandomToID = true;
+    public $events = [];
 
     public $id = 'remodal';
 
@@ -73,7 +74,6 @@ class Remodal extends \yii\base\Widget{
             ]);
         }
 
-
         $modalData .= $this->content;
 
         if($this->cancelButton){
@@ -82,6 +82,13 @@ class Remodal extends \yii\base\Widget{
 
         if($this->confirmButton){
             $modalData .= Html::tag('button', $this->confirmButtonOptions['label'], $this->confirmButtonOptions);
+        }
+
+        if(!empty($this->events)){
+            foreach($this->events as $key => $event){
+                $ex = '$(document).on(\''.$key.'\', \'#'.$this->id.'\', function(e){'.$event.'});';
+                $this->getView()->registerJs(\yii\web\JsExpression($ex));
+            }
         }
 
         return Html::tag('div', $modalData, [
