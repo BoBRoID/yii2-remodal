@@ -87,7 +87,7 @@ class Remodal extends \yii\base\Widget{
         if(!empty($this->events)){
             foreach($this->events as $key => $event){
                 $ex = '$(document).on(\''.$key.'\', \'#'.$this->id.'\', function(e){'.$event.'});';
-                $this->getView()->registerJs(\yii\web\JsExpression($ex));
+                $this->getView()->registerJs(new \yii\web\JsExpression($ex));
             }
         }
 
