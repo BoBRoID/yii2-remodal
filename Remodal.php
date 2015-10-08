@@ -19,6 +19,7 @@ class Remodal extends \yii\base\Widget{
     public $closeButton = true;
     public $cancelButton = true;
     public $confirmButton = true;
+    public $addRandomToID = true;
 
     public $id = 'remodal';
 
@@ -45,7 +46,9 @@ class Remodal extends \yii\base\Widget{
 
     public function init(){
         RemodalAsset::register($this->getView());
-        $this->id = $this->id.rand(0, 200000000);
+        if($this->addRandomToID){
+            $this->id = $this->id.rand(0, 200000000);
+        }
         $this->options = array_merge($this->optionsDefault,$this->options);
         $this->buttonOptions = array_merge($this->buttonOptionsDefault,$this->buttonOptions);
         $this->cancelButtonOptions = array_merge($this->buttonOptionsDefault,$this->cancelButtonOptionsDefault);
