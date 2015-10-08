@@ -52,7 +52,15 @@ class Remodal extends \yii\base\Widget{
         $this->confirmButtonOptions = array_merge($this->buttonOptionsDefault,$this->confirmButtonOptionsDefault);
     }
 
-    public function renderModal(){
+    public function renderModal($content = '', $options = []){
+        if(!empty($options)){
+            $this->options = array_merge($this->options, $options);
+        }
+
+        if(!empty($content)){
+            $this->content = $content;
+        }
+
         $modalData = '';
 
         if($this->closeButton){
@@ -90,7 +98,11 @@ class Remodal extends \yii\base\Widget{
         return implode(', ', $options);
     }
 
-    public function renderButton(){
+    public function renderButton($buttonOptions = []){
+        if(!empty($buttonOptions)){
+            $this->buttonOptions = array_merge($this->buttonOptions, $buttonOptions);
+        }
+
         $tag = isset($this->buttonOptions['tag']) ? $this->buttonOptions['tag'] : 'a';
         unset($this->buttonOptions['tag']);
         return Html::tag($tag, $this->buttonOptions['label'], array_merge($this->buttonOptions, [
