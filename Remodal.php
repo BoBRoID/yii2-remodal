@@ -51,7 +51,7 @@ class Remodal extends \yii\base\Widget{
             $this->id = $this->id.rand(0, 200000000);
         }
         $this->options = array_merge($this->optionsDefault, $this->options);
-        $this->buttonOptions = array_merge($this->buttonOptions, $this->buttonOptions);
+        $this->buttonOptions = array_merge($this->buttonOptionsDefault, $this->buttonOptions);
         $this->cancelButtonOptions = array_merge($this->cancelButtonOptionsDefault, $this->cancelButtonOptions);
         $this->confirmButtonOptions = array_merge($this->confirmButtonOptionsDefault, $this->confirmButtonOptions);
     }
