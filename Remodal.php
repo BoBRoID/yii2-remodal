@@ -92,7 +92,7 @@ class Remodal extends \yii\base\Widget{
         }
 
         return Html::tag('div', $modalData, array_merge($this->options, [
-            'class'                 =>  'reomdal'.(!empty($this->options['class']) ? ' '.$this->options['class'] : ''),
+            'class'                 =>  'remodal'.(!empty($this->options['class']) ? ' '.$this->options['class'] : ''),
             'data-remodal-id'       =>  $this->id,
             'data-remodal-options'  =>  $this->modalOptions()
         ]));
