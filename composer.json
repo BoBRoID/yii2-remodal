@@ -1,7 +1,8 @@
 {
   "name": "bobroid/yii2-remodal",
   "require": {
-    "yiisoft/yii2": "*"
+    "yiisoft/yii2": "*",
+    "bower-asset/remodal": "1.1.0"
   },
   "authors": [
     {
@@ -9,6 +10,11 @@
       "email": "n.gilko@gmail.com"
     }
   ],
+  "extra": {
+    "asset-installer-paths": {
+      "bower-asset-library": "vendor/bower"
+    }
+  },
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
