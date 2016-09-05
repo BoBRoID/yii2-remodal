@@ -16,13 +16,13 @@ class Remodal extends \yii\base\Widget{
     public $cancelButtonOptions = [];
     public $confirmButtonOptions = [];
     public $content = '';
-    public $closeButton = true;
-    public $cancelButton = true;
-    public $confirmButton = true;
-    public $addRandomToID = true;
+    public $closeButton = false;
+    public $cancelButton = false;
+    public $confirmButton = false;
+    public $addRandomToID = false;
     public $events = [];
 
-    public $id = 'remodal';
+    public $id;
 
     private $optionsDefault = [
         'hashTracking'          =>  "true",
@@ -47,9 +47,15 @@ class Remodal extends \yii\base\Widget{
 
     public function init(){
         RemodalAsset::register($this->getView());
-        if($this->addRandomToID){
-            $this->id = $this->id.rand(0, 200000000);
+
+        if(!$this->id){
+            $this->id = 'remodal';
+
+            if($this->addRandomToID){
+                $this->id = $this->id.rand(0, 200000000);
+            }
         }
+
         $this->options = array_merge($this->optionsDefault, $this->options);
         $this->buttonOptions = array_merge($this->buttonOptionsDefault, $this->buttonOptions);
         $this->cancelButtonOptions = array_merge($this->cancelButtonOptionsDefault, $this->cancelButtonOptions);

@@ -12,19 +12,19 @@ use yii\web\AssetBundle;
 
 class RemodalAsset extends AssetBundle{
 
-    public $sourcePath = '@vendor/bobroid/yii2-remodal/assets';
+    public $sourcePath = '@bower/remodal/dist';
 
     public $publishOptions = [
         'forceCopy' => true
     ];
 
     public $css = [
-        'css/remodal.css',
-        'css/remodal-default-theme.css',
+        'remodal.css',
+        'remodal-default-theme.css',
     ];
 
     public $js = [
-        'js/remodal.min.js'
+        'remodal.min.js'
     ];
 
     public $depends = [
