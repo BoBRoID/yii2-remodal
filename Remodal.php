@@ -20,6 +20,7 @@ class Remodal extends \yii\base\Widget{
     public $cancelButton = false;
     public $confirmButton = false;
     public $addRandomToID = false;
+    public $renderToggleButton = true;
     public $events = [];
 
     public $id;
@@ -129,7 +130,15 @@ class Remodal extends \yii\base\Widget{
     }
 
     public function run(){
-        return $this->renderButton().$this->renderModal();
+        $content = '';
+
+        if($this->renderToggleButton){
+            $content .= $this->renderButton();
+        }
+
+        $content .= $this->renderModal();
+
+        return $content;
     }
 
 }
